@@ -17,7 +17,7 @@ function l2(l2in){
 		.then(($)=>{
 
 				$('.list-group-item-heading').children('a').each(function(i,elm){
-						console.log($(this).attr('href'));
+//						console.log($(this).attr('href'));
 						l2('http://egyankosh.ac.in'+$(this).attr('href'));
 });
 
@@ -32,8 +32,10 @@ if($(this).children('a').length!=0){
 //only immediate children are found using children. To find grand children find is used
 }
 
+if($('meta[name="citation_pdf_url"]').length==1){
 				console.log($('meta[name="citation_pdf_url"]').attr('content'));				
 // the final destination
+}
 
 				});
 }
