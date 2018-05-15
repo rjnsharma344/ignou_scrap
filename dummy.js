@@ -60,8 +60,10 @@ if(l1){func('http://egyankosh.ac.in'+$(this).attr('href'),l1,$(this).text());}
 				}
 
 				if($('meta[name="citation_pdf_url"]').length==1){
-				console.log(l1+' '+l2+' '+l3);
-				console.log($('meta[name="citation_pdf_url"]').attr('content'));				
+//				console.log(l1+'/'+l2+'/'+l3+'.pdf');
+				down_path=path+l1+'/'+l2+'/'+l3+'.pdf';
+				console.log(down_path);
+				console.log($('meta[name="citation_pdf_url"]').attr('content'));
 				}
 
 				});
