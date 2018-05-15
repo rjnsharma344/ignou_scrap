@@ -21,10 +21,20 @@ function l2(l2in){
 						l2('http://egyankosh.ac.in'+$(this).attr('href'));
 });
 
-if($('.table'!=null)){
-				console.log($('.table').html());				
-//console.log($('.table').children('td[headers="t2"]').html());
+if($('strong'!=null)){
+//				console.log($('strong').html());				
+				$('strong').each(function(i,elm){
+if($(this).children('a').length!=0){				
+				l2('http://egyankosh.ac.in'+$(this).children('a').attr('href'));
 }
+				});
+						
+//only immediate children are found using children. To find grand children find is used
+}
+
+				console.log($('meta[name="citation_pdf_url"]').attr('content'));				
+// the final destination
+
 				});
 }
 

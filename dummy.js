@@ -4,27 +4,26 @@ const options = {	uri:	'http://egyankosh.ac.in/handle/123456789/3246',
 	transform: function(body) {return cheerio.load(body);}
 };
 
-l2('http://egyankosh.ac.in/handle/123456789/3246');
+l2('http://egyankosh.ac.in/handle/123456789/3732');
 
 function l2(l2in){
-//if(l2in=='http://egyankosh.ac.in'){console.log('Completed');}
-//console.log(l2in);
-// Since there will be no list-group-item-heading class on last file there is no need for special terminate check
+console.log('INPUT'+l2in)
 	var opt={	url: l2in,
 			transform: function(body) {return cheerio.load(body);}
 	};
+
 	rp(opt)
 		.then(($)=>{
-
-				$('.list-group-item-heading').children('a').each(function(i,elm){
-						console.log($(this).attr('href'));
-						l2('http://egyankosh.ac.in'+$(this).attr('href'));
-});
-
-if($('.table'!=null)){
-				console.log($('.table').html());				
-//console.log($('.table').children('td[headers="t2"]').html());
+				console.log($('meta[name="citation_pdf_url"]').attr('content'));				
+$('strong').each(function(i,elm){
+if($(this).children('a').length!=0){				
+				console.log($(this).children('a').attr('href'))
+				console.log(i);
+				l2('http://egyankosh.ac.in'+$(this).children('a').attr('href'));
 }
-				});
+				
+
+});
+});
 }
 
