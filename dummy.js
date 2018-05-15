@@ -1,29 +1,32 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
-const options = {	uri:	'http://egyankosh.ac.in/handle/123456789/3246',
-	transform: function(body) {return cheerio.load(body);}
-};
 
-l2('http://egyankosh.ac.in/handle/123456789/3732');
+func('http://egyankosh.ac.in/handle/123456789/3246');
 
-function l2(l2in){
-console.log('INPUT'+l2in)
-	var opt={	url: l2in,
+function func(inp,l1,l2,l3,l4){
+	var opt={	url: inp,
 			transform: function(body) {return cheerio.load(body);}
 	};
-
 	rp(opt)
 		.then(($)=>{
-				console.log($('meta[name="citation_pdf_url"]').attr('content'));				
-$('strong').each(function(i,elm){
-if($(this).children('a').length!=0){				
-				console.log($(this).children('a').attr('href'))
-				console.log(i);
-				l2('http://egyankosh.ac.in'+$(this).children('a').attr('href'));
-}
-				
 
+				$('.list-group-item-heading').children('a').each(function(i,elm){
+						func('http://egyankosh.ac.in'+$(this).attr('href'));
 });
-});
+
+if($('strong'!=null)){
+				$('strong').each(function(i,elm){
+if($(this).children('a').length!=0){				
+				func('http://egyankosh.ac.in'+$(this).children('a').attr('href'));
+}
+				});
+						
+}
+
+if($('meta[name="citation_pdf_url"]').length==1){
+				console.log($('meta[name="citation_pdf_url"]').attr('content'));				
+}
+
+				});
 }
 
