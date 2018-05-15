@@ -1,12 +1,38 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
+const fs = require('fs');
 path='down/';
 func('http://egyankosh.ac.in/handle/123456789/3246');
 
 function func(inp,l1,l2,l3){
+
+if(fs.existsSync(path)){//console.log("Path exists");
+}
+else{
+console.log("Path doesn't exist.. Creating");
+fs.mkdirSync(path);
+}
+
 if(l1&&l2&&l3){
 l1=l1.trim();
+
+if(fs.existsSync(path+l1)){//console.log("Path exists");
+}
+else{
+console.log("Path doesn't exist.. Creating");
+fs.mkdirSync(path+l1);
+}
+
+
 l2=l2.trim();
+
+if(fs.existsSync(path+l1+'/'+l2)){//console.log("Path exists");
+}
+else{
+console.log("Path doesn't exist.. Creating");
+fs.mkdirSync(path+l1+'/'+l2);
+}
+
 l3=l3.trim();
 //console.log(l1+' '+l2+' '+l3);
 }
