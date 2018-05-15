@@ -4,9 +4,7 @@ const options = {	uri:	'http://egyankosh.ac.in/handle/123456789/3246',
 	transform: function(body) {return cheerio.load(body);}
 };
 
-var arr = new Array()
 l2('http://egyankosh.ac.in/handle/123456789/3246');
-
 
 function l2(l2in){
 //if(l2in=='http://egyankosh.ac.in'){console.log('Completed');}
