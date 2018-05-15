@@ -30,12 +30,13 @@ rp(options)
 		});
 
 */
-function l2(l2in){
-if(l2in.length==0){console.log('Completed');}
 
-	var opt={
-url: l2in,
-     transform: function(body) {return cheerio.load(body);}
+function l2(l2in){
+//if(l2in=='http://egyankosh.ac.in'){console.log('Completed');}
+//console.log(l2in);
+// Since there will be no list-group-item-heading class on last file there is no need for special terminate check
+	var opt={	url: l2in,
+			transform: function(body) {return cheerio.load(body);}
 	};
 	rp(opt)
 		.then(($)=>{
