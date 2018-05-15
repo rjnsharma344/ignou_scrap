@@ -15,6 +15,8 @@ rp(options)
 
 $('.list-group-item-heading').children('a').each(function(i,elm){
 //console.log('http://egyankosh.ac.in'+$(this).attr('href'))
+// Culrs basic page of PubAd from IGNOU website and forms an array having all the links to future levels
+
 
 arr.push('http://egyankosh.ac.in'+$(this).attr('href'));
 //console.log(arr);
