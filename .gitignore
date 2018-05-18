@@ -1,3 +1,8 @@
 /node_modules
 /node_modules/*
 /proposed-changes
+/npm-debug-log
+/down/*
+/down
+/down (copy)
+/down (copy)/*

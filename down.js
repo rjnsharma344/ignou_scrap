@@ -1,6 +1,8 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 const fs = require('fs');
+const http = require('http');
+
 path='down/';
 func('http://egyankosh.ac.in/handle/123456789/3246');
 checkdir(path);
@@ -36,8 +38,14 @@ function func(inp,l1,l2){
 
 				}
 				if($('meta[name="citation_pdf_url"]').length==1){
+				l2=l2.replace(new RegExp('/','g'),' ')
 				down_path=l1+'/'+l2+'.pdf';
 				console.log(down_path);
+				var file = fs.createWriteStream(down_path);
+				var url = $('meta[name="citation_pdf_url"]').attr('content') ;
+				
+				var request = http.get(url,function(response){response.pipe(file);console.log("Download complete")});
+
 				console.log($('meta[name="citation_pdf_url"]').attr('content'));
 				}
 		});
