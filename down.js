@@ -4,7 +4,7 @@ const fs = require('fs');
 const http = require('http');
 
 path='down/';
-func('http://egyankosh.ac.in/handle/123456789/3246');
+func('http://egyankosh.ac.in/handle/123456789/4896');
 checkdir(path);
 
 function checkdir(path_to_dir){
@@ -43,9 +43,10 @@ function func(inp,l1,l2){
 				console.log(down_path);
 				var file = fs.createWriteStream(down_path);
 				var url = $('meta[name="citation_pdf_url"]').attr('content') ;
-				
-				var request = http.get(url,function(response){response.pipe(file);console.log("Download complete")});
-
+				var request = http.get(url,function(response){
+					response.pipe(file);console.log("Download complete")
+// close request and file to scrap all at single run
+});
 				console.log($('meta[name="citation_pdf_url"]').attr('content'));
 				}
 		});
